@@ -1,5 +1,5 @@
 /*
-   Copyright 2022 MFDLABS Ops <ops@vmminfra.net>
+   Copyright 2022 Nikita Petko <petko@vmminfra.net>
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -15,17 +15,19 @@
 */
 
 /*
-	File Name: index.spec.ts
-	Description: Default test specification for this package.
-	Written by: MFDLABS Ops
+	File Name: cache_constants.ts
+	Written by: Nikita Petko
 */
 
-import { hello_world } from '..';
+/**
+ * Default sliding expiration time in milliseconds
+ * @type {number} The default sliding expiration time in milliseconds
+ * @note This is the expiration used when an absolute expiration time is not specified, it is relative to Date.now()
+ */
+export const defaultSlidingExpirationTime: number = 60000 as const;
 
-describe('default test', () => {
-  describe('#hello_world', () => {
-    it('should return a string', () => {
-      expect(hello_world()).toBe('Hello, World!');
-    });
-  });
-});
+/**
+ * No expiration time
+ * @type {number} No expiration time
+ */
+export const noExpirationTime: number = -1 as const;
